@@ -1,0 +1,25 @@
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/amadeus_db
+    username: postgres
+    password: password
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    change-log: classpath:db/master.xml
+    enabled: true
+application:
+  security:
+    jwt:
+      secret-key: 62A6A85FF895F9FBD1ED8C9FF3F2262A6A85FF895F9FBD1ED8C9FF3F22763426
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
