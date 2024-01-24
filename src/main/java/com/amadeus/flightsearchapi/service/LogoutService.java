@@ -1,6 +1,6 @@
 package com.amadeus.flightsearchapi.service;
 
-import com.amadeus.flightsearchapi.entity.Token;
+import com.amadeus.flightsearchapi.domain.entity.Token;
 import com.amadeus.flightsearchapi.repository.ITokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,8 +1,8 @@
 package com.amadeus.flightsearchapi.controller;
 
-import com.amadeus.flightsearchapi.request.AuthenticationRequest;
-import com.amadeus.flightsearchapi.request.RegisterRequest;
-import com.amadeus.flightsearchapi.response.AuthenticationResponse;
+import com.amadeus.flightsearchapi.domain.request.AuthenticationRequest;
+import com.amadeus.flightsearchapi.domain.request.RegisterRequest;
+import com.amadeus.flightsearchapi.domain.response.AuthenticationResponse;
 import com.amadeus.flightsearchapi.service.AuthenticationService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

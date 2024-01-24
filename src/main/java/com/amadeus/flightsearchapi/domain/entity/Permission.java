@@ -1,4 +1,4 @@
-package com.amadeus.flightsearchapi.entity;
+package com.amadeus.flightsearchapi.domain.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

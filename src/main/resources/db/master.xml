@@ -4,5 +4,6 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
     <include file="/db/changelog/001_create_user_and_token_table.sql" relativeToChangelogFile="false"/>
+    <include file="/db/changelog/002_airport_and_sub_tables_create.sql" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>

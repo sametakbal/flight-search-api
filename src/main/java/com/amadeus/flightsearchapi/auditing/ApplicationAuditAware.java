@@ -1,6 +1,6 @@
 package com.amadeus.flightsearchapi.auditing;
 
-import com.amadeus.flightsearchapi.entity.User;
+import com.amadeus.flightsearchapi.domain.entity.User;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;

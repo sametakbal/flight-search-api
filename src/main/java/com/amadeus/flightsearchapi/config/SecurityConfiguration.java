@@ -14,10 +14,10 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 
-import static com.amadeus.flightsearchapi.entity.Permission.*;
-import static com.amadeus.flightsearchapi.entity.Role.*;
+import static com.amadeus.flightsearchapi.domain.entity.Permission.*;
+import static com.amadeus.flightsearchapi.domain.entity.Role.ADMIN;
+import static com.amadeus.flightsearchapi.domain.entity.Role.USER;
 import static org.springframework.http.HttpMethod.*;
-import static org.springframework.http.HttpMethod.DELETE;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 @Configuration
@@ -36,11 +36,13 @@ public class SecurityConfiguration {
             "/configuration/security",
             "/swagger-ui/**",
             "/webjars/**",
+            "/api/v1/airports",
             "/swagger-ui.html"};
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
-    private static final String USER_PATH ="/api/v1/user/**";
+    private static final String AIRPORT_PATH = "/api/v1/airports/**";
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -48,11 +50,11 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(req ->
                         req.requestMatchers(WHITE_LIST_URL)
                                 .permitAll()
-                                .requestMatchers(USER_PATH).hasAnyRole(ADMIN.name(), USER.name())
-                                .requestMatchers(GET, USER_PATH).hasAnyAuthority(ADMIN_READ.name(), USER_READ.name())
-                                .requestMatchers(POST, USER_PATH).hasAnyAuthority(ADMIN_CREATE.name(), USER_CREATE.name())
-                                .requestMatchers(PUT, USER_PATH).hasAnyAuthority(ADMIN_UPDATE.name(), USER_UPDATE.name())
-                                .requestMatchers(DELETE, USER_PATH).hasAnyAuthority(ADMIN_DELETE.name(), USER_DELETE.name())
+                                .requestMatchers(AIRPORT_PATH).hasAnyRole(ADMIN.name(), USER.name())
+                                .requestMatchers(GET, AIRPORT_PATH).hasAnyAuthority(ADMIN_READ.name(), USER_READ.name())
+                                .requestMatchers(POST, AIRPORT_PATH).hasAnyAuthority(ADMIN_CREATE.name(), USER_CREATE.name())
+                                .requestMatchers(PUT, AIRPORT_PATH).hasAnyAuthority(ADMIN_UPDATE.name(), USER_UPDATE.name())
+                                .requestMatchers(DELETE, AIRPORT_PATH).hasAnyAuthority(ADMIN_DELETE.name(), USER_DELETE.name())
                                 .anyRequest()
                                 .authenticated()
                 )

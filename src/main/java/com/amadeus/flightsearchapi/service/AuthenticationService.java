@@ -1,17 +1,16 @@
 package com.amadeus.flightsearchapi.service;
 
-import com.amadeus.flightsearchapi.entity.Token;
-import com.amadeus.flightsearchapi.entity.TokenType;
-import com.amadeus.flightsearchapi.entity.User;
+import com.amadeus.flightsearchapi.domain.entity.Token;
+import com.amadeus.flightsearchapi.domain.entity.TokenType;
+import com.amadeus.flightsearchapi.domain.entity.User;
 import com.amadeus.flightsearchapi.repository.ITokenRepository;
 import com.amadeus.flightsearchapi.repository.IUserRepository;
-import com.amadeus.flightsearchapi.request.AuthenticationRequest;
-import com.amadeus.flightsearchapi.request.RegisterRequest;
-import com.amadeus.flightsearchapi.response.AuthenticationResponse;
+import com.amadeus.flightsearchapi.domain.request.AuthenticationRequest;
+import com.amadeus.flightsearchapi.domain.request.RegisterRequest;
+import com.amadeus.flightsearchapi.domain.response.AuthenticationResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

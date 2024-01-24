@@ -1,6 +1,6 @@
 package com.amadeus.flightsearchapi.repository;
 
-import com.amadeus.flightsearchapi.entity.Token;
+import com.amadeus.flightsearchapi.domain.entity.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

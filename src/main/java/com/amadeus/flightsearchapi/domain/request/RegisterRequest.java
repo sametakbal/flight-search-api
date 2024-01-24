@@ -1,5 +1,6 @@
-package com.amadeus.flightsearchapi.request;
+package com.amadeus.flightsearchapi.domain.request;
 
+import com.amadeus.flightsearchapi.domain.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +10,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
-
+public class RegisterRequest {
+    private String firstname;
+    private String lastname;
     private String email;
     private String password;
+    private Role role;
 }

@@ -1,15 +1,14 @@
-package com.amadeus.flightsearchapi.entity;
+package com.amadeus.flightsearchapi.domain.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.amadeus.flightsearchapi.entity.Permission.*;
+import static com.amadeus.flightsearchapi.domain.entity.Permission.*;
 
 @Getter
 @RequiredArgsConstructor

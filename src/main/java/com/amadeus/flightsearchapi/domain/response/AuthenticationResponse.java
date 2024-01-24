@@ -1,4 +1,4 @@
-package com.amadeus.flightsearchapi.response;
+package com.amadeus.flightsearchapi.domain.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

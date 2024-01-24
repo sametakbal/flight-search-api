@@ -1,4 +1,4 @@
-package com.amadeus.flightsearchapi.entity;
+package com.amadeus.flightsearchapi.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
