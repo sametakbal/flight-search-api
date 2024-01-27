@@ -5,14 +5,15 @@ import com.amadeus.flightsearchapi.domain.entity.City;
 import com.amadeus.flightsearchapi.domain.request.AirportCreateRequest;
 import com.amadeus.flightsearchapi.domain.response.AirportResponse;
 import com.amadeus.flightsearchapi.domain.response.CityResponse;
-import java.util.Collections;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
-public class AirportMapper {
+public class AirportMapper implements IMapper<Airport, AirportCreateRequest, AirportResponse> {
 
+    @Override
     public AirportResponse toResponse(Airport airport) {
         if (airport == null) {
             return null;
@@ -26,6 +27,7 @@ public class AirportMapper {
                         .build()).build();
     }
 
+    @Override
     public List<AirportResponse> toResponseList(List<Airport> airports) {
         if (airports == null) {
             return Collections.emptyList();
@@ -33,6 +35,7 @@ public class AirportMapper {
         return airports.stream().map(this::toResponse).toList();
     }
 
+    @Override
     public Airport toEntity(AirportCreateRequest request) {
         if (request == null) {
             return null;

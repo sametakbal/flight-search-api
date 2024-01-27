@@ -1,5 +1,7 @@
 package com.amadeus.flightsearchapi.handler;
 
+import com.amadeus.flightsearchapi.domain.response.OperationResponse;
+import com.amadeus.flightsearchapi.handler.exceptions.GeneralException;
 import com.amadeus.flightsearchapi.handler.exceptions.UserNameAlreadyExistsException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,11 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(value = GeneralException.class)
+    public ResponseEntity<OperationResponse> exception(GeneralException exception) {
+        return new ResponseEntity<>(new OperationResponse(false, exception.getMessage()), HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(UserNameAlreadyExistsException.class)
     public ResponseEntity<Map<String, List<String>>> handleUserNameAlreadyExistsException(UserNameAlreadyExistsException ex) {

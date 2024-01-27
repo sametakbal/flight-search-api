@@ -42,6 +42,7 @@ public class SecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
     private static final String AIRPORT_PATH = "/api/v1/airports/**";
+    private static final String FLIGHT_PATH = "/api/v1/flights/**";
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -55,6 +56,11 @@ public class SecurityConfiguration {
                                 .requestMatchers(POST, AIRPORT_PATH).hasAnyAuthority(ADMIN_CREATE.name(), USER_CREATE.name())
                                 .requestMatchers(PUT, AIRPORT_PATH).hasAnyAuthority(ADMIN_UPDATE.name(), USER_UPDATE.name())
                                 .requestMatchers(DELETE, AIRPORT_PATH).hasAnyAuthority(ADMIN_DELETE.name(), USER_DELETE.name())
+                                .requestMatchers(FLIGHT_PATH).hasAnyRole(ADMIN.name(), USER.name())
+                                .requestMatchers(GET, FLIGHT_PATH).hasAnyAuthority(ADMIN_READ.name(), USER_READ.name())
+                                .requestMatchers(POST, FLIGHT_PATH).hasAnyAuthority(ADMIN_CREATE.name(), USER_CREATE.name())
+                                .requestMatchers(PUT, FLIGHT_PATH).hasAnyAuthority(ADMIN_UPDATE.name(), USER_UPDATE.name())
+                                .requestMatchers(DELETE, FLIGHT_PATH).hasAnyAuthority(ADMIN_DELETE.name(), USER_DELETE.name())
                                 .anyRequest()
                                 .authenticated()
                 )
