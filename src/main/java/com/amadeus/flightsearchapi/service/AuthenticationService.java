@@ -3,6 +3,7 @@ package com.amadeus.flightsearchapi.service;
 import com.amadeus.flightsearchapi.domain.entity.Token;
 import com.amadeus.flightsearchapi.domain.entity.TokenType;
 import com.amadeus.flightsearchapi.domain.entity.User;
+import com.amadeus.flightsearchapi.handler.exceptions.UserNameAlreadyExistsException;
 import com.amadeus.flightsearchapi.repository.ITokenRepository;
 import com.amadeus.flightsearchapi.repository.IUserRepository;
 import com.amadeus.flightsearchapi.domain.request.AuthenticationRequest;
@@ -37,6 +38,10 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse register(RegisterRequest request) {
+
+        if (repository.existsByEmail(request.getEmail())) {
+            throw new UserNameAlreadyExistsException("Email already exists");
+        }
         var user = User.builder().firstname(request.getFirstname()).lastname(request.getLastname()).email(request.getEmail()).password(passwordEncoder.encode(request.getPassword())).role(request.getRole()).build();
         var savedUser = repository.save(user);
         var jwtToken = jwtService.generateToken(user);
